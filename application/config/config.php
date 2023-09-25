@@ -56,5 +56,5 @@ define('DB_TYPE', 'mysql');
 define('DB_HOST', '192.168.0.133');
 define('DB_NAME', 'agenda');
 define('DB_USER', 'root');
-define('DB_PASS', 'Endreo91510034');
+define('DB_PASS', 'senha');
 define('DB_CHARSET', 'utf8');
