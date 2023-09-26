@@ -13,8 +13,9 @@ class Contact extends Controller {
     public function createContact(){
         $name = $_POST['name'];
         $cellphone = $_POST['cellphone'];
+        $email = $_POST['email'];
 
-        $this->model->createContact($name, $cellphone);
+        $this->model->createContact($name, $cellphone, $email);
         header('location: ' . URL . '/contact/list');
     }
 
@@ -40,8 +41,9 @@ class Contact extends Controller {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $cellphone = $_POST['cellphone'];
+        $email = $_POST['email'];
 
-        $this->model->saveContact($id, $name, $cellphone);
+        $this->model->saveContact($id, $name, $cellphone, $email);
         header('location: ' . URL . 'contact/list');
     }
 

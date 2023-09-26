@@ -16,15 +16,16 @@ class Model
     /**
      * Get all songs from database
      */
-    public function createContact(string $name, string $cellphone){
+    public function createContact($name, $cellphone, $email){
         $parameters= [];
         $parameters['name'] = strtoupper($name);
         $parameters['cellphone'] = $cellphone;
+        $parameters['email'] = $email;
 
         $sql= "INSERT
                 INTO contacts
-                    (name, cellphone)
-                VALUES( :name, :cellphone);";
+                    (name, cellphone, email)
+                VALUES( :name, :cellphone, :email);";
 
         $query = $this->db->prepare($sql);
         $query->execute($parameters);
@@ -39,7 +40,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getContactById(int $id){
+    public function getContactById($id){
         $parameters = [];
         $parameters["id"] = $id;
         $sql = "SELECT * FROM contacts where id=:id";
@@ -50,23 +51,25 @@ class Model
         return $query->fetch();
     }
 
-    public function saveContact(int $id, string $name, string $cellphone){
+    public function saveContact($id, $name, $cellphone, $email){
         $parameters = [];
         $parameters["id"] = $id;
         $parameters["name"] = strtoupper($name);
         $parameters["cellphone"] = $cellphone;
+        $parameters["email"] = $email;
 
         $sql = "UPDATE contacts
                     SET
-                    name=:name,
-                    cellphone=:cellphone
+                    name= :name,
+                    cellphone= :cellphone,
+                    email= :email
                     WHERE id=:id;";
 
         $query = $this->db->prepare($sql);
         $query->execute($parameters);
     }
 
-    public function deleteContactById(int $id){
+    public function deleteContactById($id){
         $parameters = [];
         $parameters["id"] = $id;
 

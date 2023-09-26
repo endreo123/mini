@@ -14,6 +14,10 @@ $url = $_SERVER['REQUEST_URI'];
         <label for="name">Numero:</label>
         <input type="tel" name="cellphone" id="cellphone" placeholder="Digite o numero de telefone" min="10" value="<?= isset($contact) ? $contact->cellphone : '' ?>">
     </div>
+    <div>
+        <label for="name">Email:</label>
+        <input type="text" name="email" id="email" placeholder="Digite o email" max="100" value="<?= isset($contact) ? $contact->email : '' ?>">
+    </div>
     <button><?= $url == '/contact/create' ? 'Criar': 'Salvar' ?></button>
 </form>
 <script src="/js/criarContatos.js"></script>
